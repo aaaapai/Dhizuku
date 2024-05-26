@@ -6,9 +6,9 @@
     <string name="deactivate_failed">無効化に失敗しました</string>
     <string name="active_by_shizuku">Shizuku による有効化</string>
     <string name="service_channel_name">バックグラウンド サービス</string>
-    <string name="request_permission_title">Dhizuku への権限の要求</string>
+    <string name="request_permission_title">Dhizuku への権限要求</string>
     <string name="deactivate_dsp">本当に無効化してもよろしいですか？</string>
-    <string name="active_by_adb">PCによる有効化</string>
+    <string name="active_by_adb">PC による有効化</string>
     <string name="wechat">WeChat</string>
     <string name="agree">許可</string>
     <string name="copy_success">コピーに成功しました</string>
@@ -16,7 +16,7 @@
     <string name="empty_config_dsp">Dhizuku にアクセスを要求したアプリはありません</string>
     <string name="config">構成</string>
     <string name="finish">完了</string>
-    <string name="device_owner_granted">有効化済み</string>
+    <string name="device_owner_granted">有効化されました</string>
     <string name="binance">Binance</string>
     <string name="refuse">拒否</string>
     <string name="device_admin_granted">端末管理者は有効化されていますが、端末所有者の権限の許可が必要です</string>
