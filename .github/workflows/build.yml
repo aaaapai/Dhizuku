@@ -35,7 +35,7 @@ jobs:
 
       - name: Build with Gradle
         run: |
-          ./gradlew assembleDebug bundleDebug --stacktrace
+          ./gradlew assembleRelease bundleRelease --stacktrace
           {
             echo "version=v$(grep versionName version.properties | sed 's/^[^=]*=//')"
             echo "commit=$(echo ${{ github.sha }} | cut -c-7)"
