@@ -83,12 +83,12 @@ android {
     }
 
     compileOptions {
-        targetCompatibility = JavaVersion.VERSION_22
-        sourceCompatibility = JavaVersion.VERSION_22
+        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_21
     }
 
     kotlin {
-        jvmToolchain(21)
+        jvmToolchain(22)
     }
 
     buildFeatures {
