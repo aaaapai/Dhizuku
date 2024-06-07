@@ -28,9 +28,9 @@ jobs:
 
       - uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '21'
-          with: 'gradle'
+          distribution: 'zulu'
+          java-version: '22'
+          cache: 'gradle'
 
       - name: Build with Gradle
         run: |
