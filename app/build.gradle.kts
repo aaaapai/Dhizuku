@@ -46,8 +46,9 @@ android {
             this.keyPassword = keyPassword
             this.storeFile = storeFile
             this.storePassword = storePassword
-            enableV1Signing = true
+            enableV1Signing = false
             enableV2Signing = true
+            enableV3Signing = true
         }
 
         create("release") {
@@ -55,8 +56,9 @@ android {
             this.keyPassword = keyPassword
             this.storeFile = storeFile
             this.storePassword = storePassword
-            enableV1Signing = true
+            enableV1Signing = false
             enableV2Signing = true
+            enableV3Signing = true
         }
     }
 
@@ -81,8 +83,8 @@ android {
     }
 
     compileOptions {
-        targetCompatibility = JavaVersion.VERSION_21
-        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_22
+        sourceCompatibility = JavaVersion.VERSION_22
     }
 
     kotlin {
