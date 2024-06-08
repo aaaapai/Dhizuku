@@ -25,7 +25,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        minSdk = 24
+        minSdk = 29
         targetSdk = 34
         val versionProps = loadProperties("$rootDir/version.properties")
         versionCode = versionProps.getProperty("versionCode").toInt()
@@ -47,7 +47,7 @@ android {
             this.storeFile = storeFile
             this.storePassword = storePassword
             enableV1Signing = false
-            enableV2Signing = true
+            enableV2Signing = false
             enableV3Signing = true
         }
 
@@ -57,7 +57,7 @@ android {
             this.storeFile = storeFile
             this.storePassword = storePassword
             enableV1Signing = false
-            enableV2Signing = true
+            enableV2Signing = false
             enableV3Signing = true
         }
     }
