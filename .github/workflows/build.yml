@@ -19,10 +19,6 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@main
 
-      - uses: gradle/gradle-build-action@main
-        with:
-          gradle-version: 8.8
-
       - name: Validate Gradle Wrapper
         uses: gradle/wrapper-validation-action@v3
         
