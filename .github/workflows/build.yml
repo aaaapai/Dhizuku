@@ -2,18 +2,13 @@ name: Build
 
 on:
   workflow_dispatch:
-  push:
-    paths-ignore:
-      - docs/**
-      - LICENSE
-    branches: main
   pull_request:
     branches: main
 
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
 
       - name: Checkout
@@ -21,13 +16,13 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@main
+
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+          java-version: '21'
 
       - name: Build with Gradle
         run: |
@@ -37,13 +32,8 @@ jobs:
             echo "commit=$(echo ${{ github.sha }} | cut -c-7)"
           } >> $GITHUB_ENV
 
-      - name: Copy built artifacts
-        run: |
-          cp -v app/build/outputs/apk/release/app-release.apk Dhizuku-${{ env.version }}.apk
-          cp -v app/build/outputs/bundle/release/app-release.aab Dhizuku-${{ env.version }}.aab
-
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
           name: Dhizuku(${{ env.version }}@${{ env.commit }})
-          path: Dhizuku-${{ env.version }}.a*
+          path: ./**/*.apk
