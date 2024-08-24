@@ -5,15 +5,16 @@ import android.content.pm.PackageManager
 import android.os.Build
 
 fun PackageManager.getPackageNameForUid(uid: Int): String? =
-    getNameForUid(uid) ?: getPackagesForUid(uid)?.first()
+    getPackagesForUid(uid)?.first()
 
 fun PackageManager.getPackageInfoForUid(
     uid: Int,
-    flags: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) PackageManager.GET_SIGNING_CERTIFICATES
-    else PackageManager.GET_SIGNATURES
-): PackageInfo? {
-    return getPackageInfo(getPackageNameForUid(uid) ?: return null, flags)
-}
+    flags: Int = (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) PackageManager.MATCH_UNINSTALLED_PACKAGES
+    else 0) or (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) PackageManager.GET_SIGNING_CERTIFICATES
+    else PackageManager.GET_SIGNATURES)
+): PackageInfo? = kotlin.runCatching {
+    getPackageInfo(getPackageNameForUid(uid) ?: return null, flags)
+}.getOrNull()
 
 @OptIn(ExperimentalStdlibApi::class)
 val PackageInfo.signature: String?
